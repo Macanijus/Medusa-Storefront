@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.product-grid-container {
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.product-grid-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  justify-items: center;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-weight: bold;
+}
