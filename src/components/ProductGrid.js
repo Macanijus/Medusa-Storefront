@@ -21,7 +21,7 @@ function ProductGrid() {
 
   return (
     <div className="product-grid-container">
-      <h2 className="product-grid-title">Product Grid</h2>
+      <h2 className="product-grid-title">New Collection</h2>
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card text-center">

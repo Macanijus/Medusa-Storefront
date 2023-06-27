@@ -57,6 +57,20 @@
   font-size: 16px;
 }
 
+.quantity {
+  margin-bottom: 10px;
+}
+
+.quantity label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.quantity input[type="number"] {
+  padding: 8px;
+  font-size: 16px;
+}
+
 .add-to-cart-button {
   display: block;
   padding: 10px 20px;
@@ -87,5 +101,39 @@
 
   .product-info {
     text-align: left;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .product-details-container {
+    padding: 10px;
+  }
+
+  .product-image {
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .product-title {
+    font-size: 20px;
+  }
+
+  .product-price {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .product-description {
+    margin-bottom: 5px;
+  }
+
+  .dropdown select,
+  .quantity input[type="number"] {
+    font-size: 14px;
+  }
+
+  .add-to-cart-button {
+    padding: 8px 16px;
+    font-size: 16px;
   }
 }
