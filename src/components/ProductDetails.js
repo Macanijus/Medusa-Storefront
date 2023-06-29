@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../CartContext";
 import "./ProductDetails.css";
 
 function ProductDetails() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetchProduct();
@@ -24,44 +28,70 @@ function ProductDetails() {
     }
   };
 
-  console.log("Product ID:", productId);
-
   const handleSizeChange = (event) => {
     const selectedSize = event.target.value;
     setSelectedSize(selectedSize);
-
-    // Find the variant that matches the selected size
-    const selectedVariant = product.product.variants.find(
-      (variant) => variant.title === selectedSize
-    );
-
-    // Update the product with the selected variant
-    const updatedProduct = { ...product };
-    updatedProduct.product.selectedVariant = selectedVariant;
-    setProduct(updatedProduct);
   };
 
-  if (!product) {
+  const handleColorChange = (event) => {
+    const selectedColor = event.target.value;
+    setSelectedColor(selectedColor);
+  };
+
+  const handleQuantityChange = (event) => {
+    const quantity = parseInt(event.target.value);
+    setQuantity(quantity);
+  };
+
+  const handleAddToCart = () => {
+    if (product) {
+      const {
+        productId,
+        product: { title, selectedVariant, thumbnail },
+      } = product;
+      const cartItem = {
+        productId,
+        title,
+        variant: selectedVariant,
+        size: selectedSize,
+        color: selectedColor,
+        quantity,
+        thumbnail, // Include the thumbnail in the cart item
+      };
+      addToCart(cartItem);
+    }
+  };
+
+  if (!product || !product.product) {
     return <div>Loading...</div>;
   }
 
-  const selectedVariant = product.product.selectedVariant;
+  const {
+    product: {
+      selectedVariant,
+      variants,
+      colors,
+      thumbnail,
+      title,
+      description,
+    },
+  } = product;
 
   return (
     <div className="product-details-container">
       <h2>Product Details</h2>
       <div className="product-details">
         <div className="product-image">
-          <img src={product.product.thumbnail} alt={product.product.title} />
+          <img src={thumbnail} alt={title} />
         </div>
         <div className="product-info">
-          <h3 className="product-title">{product.product.title}</h3>
+          <h3 className="product-title">{title}</h3>
           <p className="product-price">
             {selectedVariant
               ? `$${selectedVariant.prices[0].amount / 100} USD`
               : ""}
           </p>
-          <p className="product-description">{product.product.description}</p>
+          <p className="product-description">{description}</p>
           <div className="dropdowns">
             <div className="dropdown">
               <label htmlFor="size">Size:</label>
@@ -72,35 +102,46 @@ function ProductDetails() {
                 onChange={handleSizeChange}
               >
                 <option value="">Select size</option>
-                {product.product.variants.map((variant) => (
-                  <option key={variant.id} value={variant.title}>
-                    {variant.title}
-                  </option>
-                ))}
+                {variants &&
+                  variants.map((variant) => (
+                    <option key={variant.title} value={variant.title}>
+                      {variant.title}
+                    </option>
+                  ))}
               </select>
             </div>
             <div className="dropdown">
               <label htmlFor="color">Color:</label>
-              <select id="color" name="color">
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
+              <select
+                id="color"
+                name="color"
+                value={selectedColor}
+                onChange={handleColorChange}
+              >
+                <option value="">Select color</option>
+                {colors &&
+                  colors.map((color) => (
+                    <option key={color} value={color}>
+                      {color}
+                    </option>
+                  ))}
               </select>
             </div>
           </div>
-          <div className="quantity">
-            <p>
-              Quantity:
-              {product.product.variants
-                .map((variant) => variant.inventory_quantity)
-                .filter((value, index, self) => self.indexOf(value) === index)
-                .map((quantity, index) => (
-                  <span key={index}>{quantity} </span>
-                ))}
-            </p>
+          <div className="quantity-input">
+            <label htmlFor="quantity">Quantity:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={quantity}
+              min="1"
+              onChange={handleQuantityChange}
+            />
           </div>
-          <button className="add-to-cart-button">Add to Cart</button>
+          <button className="add-to-cart-button" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

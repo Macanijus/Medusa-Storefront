@@ -5,15 +5,20 @@ import ProductDetails from "./components/ProductDetails";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import ContactUs from "./components/ContactUs";
+import { CartContextProvider } from "./CartContext";
+import Cart from "./components/Cart";
 import "./tailwind.css";
 import { useLocation } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
-        <MainContent />
+        <CartContextProvider>
+          <Navbar />
+          <MainContent />
+        </CartContextProvider>
       </div>
     </Router>
   );
@@ -31,6 +36,7 @@ function MainContent() {
         <Route path="/" element={<ProductGrid />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );

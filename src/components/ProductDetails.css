@@ -61,6 +61,10 @@
   margin-bottom: 10px;
 }
 
+.quantity p {
+  font-weight: bold;
+}
+
 .quantity label {
   font-weight: bold;
   margin-right: 5px;
