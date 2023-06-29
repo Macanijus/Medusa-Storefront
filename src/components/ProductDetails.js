@@ -2,13 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../CartContext";
 import "./ProductDetails.css";
+import "./ImageNavigation.css";
+import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
 
 function ProductDetails() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
-  const [quantity, setQuantity] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -38,11 +40,6 @@ function ProductDetails() {
     setSelectedColor(selectedColor);
   };
 
-  const handleQuantityChange = (event) => {
-    const quantity = parseInt(event.target.value);
-    setQuantity(quantity);
-  };
-
   const handleAddToCart = () => {
     if (product) {
       const {
@@ -55,8 +52,8 @@ function ProductDetails() {
         variant: selectedVariant,
         size: selectedSize,
         color: selectedColor,
-        quantity,
-        thumbnail, // Include the thumbnail in the cart item
+        quantity: 1, // Set the quantity to 1
+        thumbnail,
       };
       addToCart(cartItem);
     }
@@ -71,27 +68,58 @@ function ProductDetails() {
       selectedVariant,
       variants,
       colors,
+      images,
       thumbnail,
       title,
       description,
+      inventory_quantity,
     },
   } = product;
+
+  const handleImageChange = (index) => {
+    setCurrentImageIndex(index);
+  };
 
   return (
     <div className="product-details-container">
       <h2>Product Details</h2>
       <div className="product-details">
         <div className="product-image">
-          <img src={thumbnail} alt={title} />
+          <img src={images[currentImageIndex].url} alt={title} />
+          {images.length > 1 && (
+            <div className="image-navigation">
+              {currentImageIndex > 0 && (
+                <button
+                  className="image-navigation-button"
+                  onClick={() => handleImageChange(currentImageIndex - 1)}
+                >
+                  <RiArrowLeftLine />
+                </button>
+              )}
+              {currentImageIndex < images.length - 1 && (
+                <button
+                  className="image-navigation-button"
+                  onClick={() => handleImageChange(currentImageIndex + 1)}
+                >
+                  <RiArrowRightLine />
+                </button>
+              )}
+            </div>
+          )}
         </div>
         <div className="product-info">
           <h3 className="product-title">{title}</h3>
           <p className="product-price">
-            {selectedVariant
-              ? `$${selectedVariant.prices[0].amount / 100} USD`
-              : ""}
+            {selectedVariant &&
+            selectedVariant.prices &&
+            selectedVariant.prices.length > 0 ? (
+              <>Price: ${selectedVariant.prices[0].amount / 100} USD</>
+            ) : (
+              "Price not available"
+            )}
           </p>
           <p className="product-description">{description}</p>
+          <p className="product-quantity">Quantity: {inventory_quantity}</p>
           <div className="dropdowns">
             <div className="dropdown">
               <label htmlFor="size">Size:</label>
@@ -127,17 +155,6 @@ function ProductDetails() {
                   ))}
               </select>
             </div>
-          </div>
-          <div className="quantity-input">
-            <label htmlFor="quantity">Quantity:</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value={quantity}
-              min="1"
-              onChange={handleQuantityChange}
-            />
           </div>
           <button className="add-to-cart-button" onClick={handleAddToCart}>
             Add to Cart

@@ -40,17 +40,17 @@ const Cart = () => {
               <h3 className="cart-item-title">{item.title}</h3>
               {item.variant && item.variant.prices && (
                 <p className="cart-item-price">
-                  Cijena: {item.variant.prices[0].amount / 100} HRK
+                  Price: {item.variant.prices[0].amount / 100} USD
                 </p>
               )}
               {item.variant && (
-                <p className="cart-item-size">Veličina: {item.variant.title}</p>
+                <p className="cart-item-size">SIZE: {item.variant.title}</p>
               )}
               <button
                 className="cart-item-remove"
                 onClick={() => handleRemoveItem(item.productId)}
               >
-                Ukloni
+                Remove
               </button>
             </div>
           </li>
