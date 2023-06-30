@@ -69,6 +69,10 @@
   font-weight: bold;
   margin-right: 5px;
 }
+#material {
+  font-weight: bold;
+  margin-right: 5px;
+}
 
 .quantity input[type="number"] {
   padding: 8px;

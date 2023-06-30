@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../CartContext";
-import "./Cart.css"; // Import the CSS file
+import "./Cart.css";
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
@@ -29,7 +29,7 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      <h2 className="cart-heading">Košarica</h2>
+      <h2 className="cart-heading">Cart</h2>
       <ul className="cart-items">
         {cartItems.map((item) => (
           <li key={item.productId} className="cart-item">
@@ -38,10 +38,14 @@ const Cart = () => {
             </div>
             <div className="cart-item-details">
               <h3 className="cart-item-title">{item.title}</h3>
-              {item.variant && item.variant.prices && (
+              {item.variants &&
+              item.variants.prices &&
+              item.variants.prices.length > 0 ? (
                 <p className="cart-item-price">
-                  Price: {item.variant.prices[0].amount / 100} USD
+                  Price: {item.variants.prices[0]?.amount / 100} USD
                 </p>
+              ) : (
+                <p className="cart-item-price">Price not available</p>
               )}
               {item.variant && (
                 <p className="cart-item-size">SIZE: {item.variant.title}</p>

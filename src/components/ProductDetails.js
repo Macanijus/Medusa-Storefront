@@ -46,6 +46,7 @@ function ProductDetails() {
         productId,
         product: { title, selectedVariant, thumbnail },
       } = product;
+
       const cartItem = {
         productId,
         title,
@@ -69,12 +70,17 @@ function ProductDetails() {
       variants,
       colors,
       images,
-      thumbnail,
+
       title,
       description,
-      inventory_quantity,
+      material,
     },
   } = product;
+
+  const inventoryQuantity = selectedVariant
+    ? selectedVariant[0].inventory_quantity
+    : "N/A";
+  console.log(inventoryQuantity);
 
   const handleImageChange = (index) => {
     setCurrentImageIndex(index);
@@ -119,7 +125,8 @@ function ProductDetails() {
             )}
           </p>
           <p className="product-description">{description}</p>
-          <p className="product-quantity">Quantity: {inventory_quantity}</p>
+
+          <p className="product-quantity">Quantity: {inventoryQuantity}</p>
           <div className="dropdowns">
             <div className="dropdown">
               <label htmlFor="size">Size:</label>
@@ -155,7 +162,10 @@ function ProductDetails() {
                   ))}
               </select>
             </div>
+            <label id="material">Material:</label>
+            <p>{material}</p>
           </div>
+
           <button className="add-to-cart-button" onClick={handleAddToCart}>
             Add to Cart
           </button>

@@ -6,7 +6,7 @@ import { CartContext } from "../CartContext";
 import "./Navbar.css";
 import logo from "../assets/medusa.jpg";
 
-const Navbar = () => {
+function Navbar() {
   const location = useLocation();
   const { cartItems } = useContext(CartContext);
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -62,6 +62,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

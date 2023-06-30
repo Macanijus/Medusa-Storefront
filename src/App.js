@@ -10,6 +10,8 @@ import Cart from "./components/Cart";
 import "./tailwind.css";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <CartContextProvider>
           <Navbar />
           <MainContent />
+          <Footer />
         </CartContextProvider>
       </div>
     </Router>
@@ -36,6 +39,7 @@ function MainContent() {
         <Route path="/" element={<ProductGrid />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
