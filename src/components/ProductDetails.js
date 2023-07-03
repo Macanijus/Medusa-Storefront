@@ -81,11 +81,9 @@ function ProductDetails() {
   const selectedVariant = variants.find(
     (variant) => variant.id === selectedVariantId
   );
-
-  const inventoryQuantity = selectedVariant
-    ? selectedVariant.inventory_quantity
-    : "N/A";
-  console.log(inventoryQuantity);
+  //cheking if we have it in stock
+  const inventoryQuantity = product.product.variants[0].inventory_quantity;
+  const isAvailable = inventoryQuantity > 0;
 
   const handleImageChange = (index) => {
     setCurrentImageIndex(index);
@@ -122,11 +120,11 @@ function ProductDetails() {
         <div className="product-info">
           <h3 className="product-title">{title}</h3>
           <p className="product-price">${variants[0].prices[0].amount / 100}</p>
-
           <p className="product-description">{description}</p>
+          <p className={`product-quantity ${isAvailable ? "green" : ""}`}>
+            In Stock: {inventoryQuantity}
+          </p>
 
-          <p className="product-quantity">Quantity:</p>
-          <span>{product.product.variants[0].inventory_quantity}</span>
           <div className="dropdowns">
             <div className="dropdown">
               <label htmlFor="size">Size:</label>
@@ -150,9 +148,7 @@ function ProductDetails() {
               <p>{material}</p>
             </div>
           </div>
-
           {error && <p className="error-message">{error}</p>}
-
           <button className="add-to-cart-button" onClick={handleAddToCart}>
             Add to Cart
           </button>

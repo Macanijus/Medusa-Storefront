@@ -94,6 +94,9 @@
   background-color: #555;
 }
 
+.product-quantity.green {
+  color: green;
+}
 /* Responsive Styles */
 
 @media only screen and (min-width: 768px) {
