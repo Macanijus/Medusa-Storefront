@@ -9,8 +9,8 @@ function ProductDetails() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedVariantId, setSelectedVariantId] = useState("");
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -33,11 +33,12 @@ function ProductDetails() {
   const handleSizeChange = (event) => {
     const selectedSize = event.target.value;
     setSelectedSize(selectedSize);
-  };
-
-  const handleColorChange = (event) => {
-    const selectedColor = event.target.value;
-    setSelectedColor(selectedColor);
+    const selectedVariant = product?.variants?.find(
+      (variant) => variant.title === selectedSize
+    );
+    if (selectedVariant) {
+      setSelectedVariantId(selectedVariant.id);
+    }
   };
 
   const handleAddToCart = () => {
@@ -52,7 +53,7 @@ function ProductDetails() {
         title,
         variant: selectedVariant,
         size: selectedSize,
-        color: selectedColor,
+
         quantity: 1, // Set the quantity to 1
         thumbnail,
       };
@@ -65,26 +66,23 @@ function ProductDetails() {
   }
 
   const {
-    product: {
-      selectedVariant,
-      variants,
-      colors,
-      images,
-
-      title,
-      description,
-      material,
-    },
+    product: { variants, images, title, description, material },
   } = product;
 
+  const selectedVariant = variants.find(
+    (variant) => variant.id === selectedVariantId
+  );
+
   const inventoryQuantity = selectedVariant
-    ? selectedVariant[0].inventory_quantity
+    ? selectedVariant.inventory_quantity
     : "N/A";
   console.log(inventoryQuantity);
 
   const handleImageChange = (index) => {
     setCurrentImageIndex(index);
   };
+
+  console.log(product.product.variants[0].inventory_quantity);
 
   return (
     <div className="product-details-container">
@@ -115,18 +113,13 @@ function ProductDetails() {
         </div>
         <div className="product-info">
           <h3 className="product-title">{title}</h3>
-          <p className="product-price">
-            {selectedVariant &&
-            selectedVariant.prices &&
-            selectedVariant.prices.length > 0 ? (
-              <>Price: ${selectedVariant.prices[0].amount / 100} USD</>
-            ) : (
-              "Price not available"
-            )}
-          </p>
+          <p className="product-price">${variants[0].prices[0].amount / 100}</p>
+
           <p className="product-description">{description}</p>
 
-          <p className="product-quantity">Quantity: {inventoryQuantity}</p>
+          <p className="product-quantity">
+            Quantity: {product.product.variants[0].inventory_quantity}
+          </p>
           <div className="dropdowns">
             <div className="dropdown">
               <label htmlFor="size">Size:</label>
@@ -139,31 +132,16 @@ function ProductDetails() {
                 <option value="">Select size</option>
                 {variants &&
                   variants.map((variant) => (
-                    <option key={variant.title} value={variant.title}>
+                    <option key={variant.id} value={variant.title}>
                       {variant.title}
                     </option>
                   ))}
               </select>
             </div>
             <div className="dropdown">
-              <label htmlFor="color">Color:</label>
-              <select
-                id="color"
-                name="color"
-                value={selectedColor}
-                onChange={handleColorChange}
-              >
-                <option value="">Select color</option>
-                {colors &&
-                  colors.map((color) => (
-                    <option key={color} value={color}>
-                      {color}
-                    </option>
-                  ))}
-              </select>
+              <label htmlFor="material">Material:</label>
+              <p>{material}</p>
             </div>
-            <label id="material">Material:</label>
-            <p>{material}</p>
           </div>
 
           <button className="add-to-cart-button" onClick={handleAddToCart}>
