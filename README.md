@@ -1,18 +1,18 @@
 # Medusa Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Medusa Store is a small online store for clothes built with Medusa Store API. It allows users to browse and select products, add them to the cart, and choose the size before making a purchase. This project showcases the basic functionality of an e-commerce store.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The project aims to provide a simple and intuitive user interface for an online clothing store. Users can view all available products, select their desired items, add them to the cart, and proceed to checkout. The project is implemented using React and utilizes Medusa Store API for fetching and managing product data.
 
-### `npm start`
+### Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1.Display all products available in the store.
+2.Enable users to choose the size before adding products to the cart.
+3.Implement a shopping cart functionality to add and remove products.
+4.Create a responsive layout for seamless user experience across devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
