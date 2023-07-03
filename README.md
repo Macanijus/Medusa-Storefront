@@ -8,7 +8,7 @@ The project aims to provide a simple and intuitive user interface for an online 
 
 ### Key Features
 
-*Display all products available in the store.
+-Display all products available in the store.
 
 “*”Enable users to choose the size before adding products to the cart.
 
