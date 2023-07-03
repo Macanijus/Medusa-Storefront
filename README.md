@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Medusa Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Medusa Store is a small online store for clothes built with Medusa Store API. It allows users to browse and select products, add them to the cart, and choose the size before making a purchase. This project showcases the basic functionality of an e-commerce store.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The project aims to provide a simple and intuitive user interface for an online clothing store. Users can view all available products, select their desired items, add them to the cart, and proceed to checkout. The project is implemented using React and utilizes Medusa Store API for fetching and managing product data.
 
-### `npm start`
+### Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Display all products available in the store.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Enable users to choose the size before adding products to the cart.
 
-### `npm test`
+* Implement a shopping cart functionality to add and remove products.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Create a responsive layout for seamless user experience across devices.
 
-### `npm run build`
+* I have enhanced the project by implementing an admin dashboard feature, which provides additional functionality and control for managing the online store.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* :warning: **Contact form is not in use YET! It is only for decoration**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Project Details
 
-### `npm run eject`
+* Duration: 2 weeks
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Technology: React, Medusa Store API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Styling: Basic CSS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Challenges Faced
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The most challenging part of the project was implementing the shopping cart functionality. Although it was not a required feature, I took the initiative to include it to enhance the user experience. It required careful handling of product data, managing cart state, and implementing add/remove functionality. Despite the challenges, I successfully implemented a functional and user-friendly cart.
 
-## Learn More
+### Areas of Pride
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I'm particularly proud of the shopping cart implementation. It was an extra effort I put into the project, and I'm satisfied with the functionality and user experience it provides. It allowed me to expand my skills and showcase my ability to go beyond the given requirements.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Improvements
 
-### Code Splitting
+While the project meets the basic requirements, there are areas for further enhancement:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Implement better styling using Tailwind CSS for a more polished and professional appearance.
 
-### Analyzing the Bundle Size
+* Learn and incorporate TypeScript into the project to improve code reliability and maintainability.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Explore additional features such as user authentication, wishlist, and order tracking.
 
-### Making a Progressive Web App
+### Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ProductGrid: Component responsible for fetching and displaying all products.
 
-### Advanced Configuration
+ProductDetails: Component for fetching and displaying details of a single product.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Installation and Setup
 
-### Deployment
+To run the project locally, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Clone the repository: git clone https://github.com/your-username/medusa-store.git
 
-### `npm run build` fails to minify
+Navigate to the project directory: cd medusa-store
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Install dependencies: npm install
+
+Start the development server: npm start
+
+Open your browser and visit http://localhost:3000 to see the application.
+
