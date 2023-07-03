@@ -9,35 +9,29 @@ The project aims to provide a simple and intuitive user interface for an online 
 ### Key Features
 
 1.Display all products available in the store.
+
 2.Enable users to choose the size before adding products to the cart.
+
 3.Implement a shopping cart functionality to add and remove products.
+
 4.Create a responsive layout for seamless user experience across devices.
 
 
-### `npm test`
+### Project Details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Duration: 2 weeks
 
-### `npm run build`
+Technology: React, Medusa Store API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Styling: Basic CSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Challenges Faced
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The most challenging part of the project was implementing the shopping cart functionality. Although it was not a required feature, I took the initiative to include it to enhance the user experience. It required careful handling of product data, managing cart state, and implementing add/remove functionality. Despite the challenges, I successfully implemented a functional and user-friendly cart.
 
-### `npm run eject`
+### Areas of Pride
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+I'm particularly proud of the shopping cart implementation. It was an extra effort I put into the project, and I'm satisfied with the functionality and user experience it provides. It allowed me to expand my skills and showcase my ability to go beyond the given requirements.
 
 ## Learn More
 
