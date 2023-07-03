@@ -49,22 +49,17 @@ ProductGrid: Component responsible for fetching and displaying all products.
 
 ProductDetails: Component for fetching and displaying details of a single product.
 
-### Analyzing the Bundle Size
+### Installation and Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run the project locally, follow these steps:
 
-### Making a Progressive Web App
+Clone the repository: git clone https://github.com/your-username/medusa-store.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Navigate to the project directory: cd medusa-store
 
-### Advanced Configuration
+Install dependencies: npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Start the development server: npm start
 
-### Deployment
+Open your browser and visit http://localhost:3000 to see the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
