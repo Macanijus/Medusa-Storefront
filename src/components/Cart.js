@@ -3,23 +3,21 @@ import { CartContext } from "../CartContext";
 import "./Cart.css";
 
 const Cart = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+  const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
   };
 
-  const handleRemoveItem = (productId) => {
-    const confirmed = window.confirm(
-      "Are you sure to remove this product from your cart?"
-    );
-    if (confirmed) {
-      handleRemoveFromCart(productId);
-    }
-  };
-
   const handleProceedToCheckout = () => {
     alert("This feature is coming soon!");
+  };
+
+  const handleClearCart = () => {
+    const confirmed = window.confirm("Are you sure to clear your cart?");
+    if (confirmed) {
+      clearCart();
+    }
   };
 
   if (cartItems.length === 0) {
@@ -46,16 +44,13 @@ const Cart = () => {
                 <p className="cart-item-size">SIZE: {item.variant.title}</p>
               )}
               <p>Size: {item.size}</p>
-              <button
-                className="cart-item-remove"
-                onClick={() => handleRemoveItem(item.productId)}
-              >
-                Remove
-              </button>
             </div>
           </li>
         ))}
       </ul>
+      <button className="cart-item-remove" onClick={handleClearCart}>
+        Clear Cart
+      </button>
       <button
         className="proceed-to-checkout-button"
         onClick={handleProceedToCheckout}
