@@ -18,6 +18,8 @@ The project aims to provide a simple and intuitive user interface for an online 
 
 * I have enhanced the project by implementing an admin dashboard feature, which provides additional functionality and control for managing the online store.
 
+* :warning: **Contact form is not in use YET! It is only for decoration**
+
 
 ### Project Details
 
