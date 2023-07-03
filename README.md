@@ -16,6 +16,8 @@ The project aims to provide a simple and intuitive user interface for an online 
 
 4.Create a responsive layout for seamless user experience across devices.
 
+5.I have enhanced the project by implementing an admin dashboard feature, which provides additional functionality and control for managing the online store.
+
 
 ### Project Details
 
