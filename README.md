@@ -8,24 +8,24 @@ The project aims to provide a simple and intuitive user interface for an online 
 
 ### Key Features
 
-1.Display all products available in the store.
+“*”Display all products available in the store.
 
-2.Enable users to choose the size before adding products to the cart.
+“*”Enable users to choose the size before adding products to the cart.
 
-3.Implement a shopping cart functionality to add and remove products.
+“*”Implement a shopping cart functionality to add and remove products.
 
-4.Create a responsive layout for seamless user experience across devices.
+“*”Create a responsive layout for seamless user experience across devices.
 
-5.I have enhanced the project by implementing an admin dashboard feature, which provides additional functionality and control for managing the online store.
+“*”I have enhanced the project by implementing an admin dashboard feature, which provides additional functionality and control for managing the online store.
 
 
 ### Project Details
 
-Duration: 2 weeks
+“*”Duration: 2 weeks
 
-Technology: React, Medusa Store API
+“*”Technology: React, Medusa Store API
 
-Styling: Basic CSS
+“*”Styling: Basic CSS
 
 ### Challenges Faced
 
@@ -39,11 +39,11 @@ I'm particularly proud of the shopping cart implementation. It was an extra effo
 
 While the project meets the basic requirements, there are areas for further enhancement:
 
-1.Implement better styling using Tailwind CSS for a more polished and professional appearance.
+“*”Implement better styling using Tailwind CSS for a more polished and professional appearance.
 
-2.Learn and incorporate TypeScript into the project to improve code reliability and maintainability.
+“*”Learn and incorporate TypeScript into the project to improve code reliability and maintainability.
 
-3.Explore additional features such as user authentication, wishlist, and order tracking.
+“*”Explore additional features such as user authentication, wishlist, and order tracking.
 
 ### Project Structure
 
