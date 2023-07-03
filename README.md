@@ -33,15 +33,21 @@ The most challenging part of the project was implementing the shopping cart func
 
 I'm particularly proud of the shopping cart implementation. It was an extra effort I put into the project, and I'm satisfied with the functionality and user experience it provides. It allowed me to expand my skills and showcase my ability to go beyond the given requirements.
 
-## Learn More
+## Future Improvements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+While the project meets the basic requirements, there are areas for further enhancement:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.Implement better styling using Tailwind CSS for a more polished and professional appearance.
 
-### Code Splitting
+2.Learn and incorporate TypeScript into the project to improve code reliability and maintainability.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3.Explore additional features such as user authentication, wishlist, and order tracking.
+
+### Project Structure
+
+ProductGrid: Component responsible for fetching and displaying all products.
+
+ProductDetails: Component for fetching and displaying details of a single product.
 
 ### Analyzing the Bundle Size
 
