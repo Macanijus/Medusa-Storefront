@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap");
 .banner {
   position: relative;
   width: 100%;
@@ -23,7 +23,7 @@
 }
 
 .banner__text {
-  font-family: "Kanit";
+  font-family: "Bacasime Antique";
   color: #fff;
   font-size: 76px;
   font-weight: bold;

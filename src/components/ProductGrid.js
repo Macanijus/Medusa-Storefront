@@ -8,7 +8,7 @@ function ProductGrid() {
   useEffect(() => {
     fetchProducts();
   }, []);
-
+  //Fetching all products
   const fetchProducts = async () => {
     try {
       const response = await fetch("http://localhost:9000/store/products");

@@ -11,12 +11,14 @@ function ProductDetails() {
   const [selectedSize, setSelectedSize] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedVariantId, setSelectedVariantId] = useState("");
+  const [error, setError] = useState("");
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetchProduct();
   }, []);
 
+  // Fetching single product!
   const fetchProduct = async () => {
     try {
       const response = await fetch(
@@ -30,6 +32,7 @@ function ProductDetails() {
     }
   };
 
+  // Fetching size of a product and displaying it in a dropdown
   const handleSizeChange = (event) => {
     const selectedSize = event.target.value;
     setSelectedSize(selectedSize);
@@ -41,23 +44,28 @@ function ProductDetails() {
     }
   };
 
+  // Function for adding products to the cart
   const handleAddToCart = () => {
-    if (product) {
-      const {
-        productId,
-        product: { title, selectedVariant, thumbnail },
-      } = product;
+    if (selectedSize === "") {
+      setError("Please select a size");
+    } else {
+      setError("");
+      if (product) {
+        const {
+          productId,
+          product: { title, selectedVariant, thumbnail },
+        } = product;
 
-      const cartItem = {
-        productId,
-        title,
-        variant: selectedVariant,
-        size: selectedSize,
-
-        quantity: 1, // Set the quantity to 1
-        thumbnail,
-      };
-      addToCart(cartItem);
+        const cartItem = {
+          productId,
+          title,
+          variant: selectedVariant,
+          size: selectedSize,
+          quantity: 1,
+          thumbnail,
+        };
+        addToCart(cartItem);
+      }
     }
   };
 
@@ -65,6 +73,7 @@ function ProductDetails() {
     return <div>Loading...</div>;
   }
 
+  // Destructuring objects
   const {
     product: { variants, images, title, description, material },
   } = product;
@@ -86,7 +95,6 @@ function ProductDetails() {
 
   return (
     <div className="product-details-container">
-      <h2>Product Details</h2>
       <div className="product-details">
         <div className="product-image">
           <img src={images[currentImageIndex].url} alt={title} />
@@ -117,9 +125,8 @@ function ProductDetails() {
 
           <p className="product-description">{description}</p>
 
-          <p className="product-quantity">
-            Quantity: {product.product.variants[0].inventory_quantity}
-          </p>
+          <p className="product-quantity">Quantity:</p>
+          <span>{product.product.variants[0].inventory_quantity}</span>
           <div className="dropdowns">
             <div className="dropdown">
               <label htmlFor="size">Size:</label>
@@ -143,6 +150,8 @@ function ProductDetails() {
               <p>{material}</p>
             </div>
           </div>
+
+          {error && <p className="error-message">{error}</p>}
 
           <button className="add-to-cart-button" onClick={handleAddToCart}>
             Add to Cart

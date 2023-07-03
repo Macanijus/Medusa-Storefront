@@ -18,6 +18,10 @@ const Cart = () => {
     }
   };
 
+  const handleProceedToCheckout = () => {
+    alert("This feature is coming soon!");
+  };
+
   if (cartItems.length === 0) {
     return (
       <div className="cart-container">
@@ -38,18 +42,10 @@ const Cart = () => {
             </div>
             <div className="cart-item-details">
               <h3 className="cart-item-title">{item.title}</h3>
-              {item.variants &&
-              item.variants.prices &&
-              item.variants.prices.length > 0 ? (
-                <p className="cart-item-price">
-                  Price: {item.variants.prices[0]?.amount / 100} USD
-                </p>
-              ) : (
-                <p className="cart-item-price">Price not available</p>
-              )}
               {item.variant && (
                 <p className="cart-item-size">SIZE: {item.variant.title}</p>
               )}
+              <p>Size: {item.size}</p>
               <button
                 className="cart-item-remove"
                 onClick={() => handleRemoveItem(item.productId)}
@@ -60,6 +56,12 @@ const Cart = () => {
           </li>
         ))}
       </ul>
+      <button
+        className="proceed-to-checkout-button"
+        onClick={handleProceedToCheckout}
+      >
+        Proceed to Checkout
+      </button>
     </div>
   );
 };
